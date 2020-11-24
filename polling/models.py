@@ -1,18 +1,20 @@
 # blogging/models.py
 from django.db import models
-#from blogging.models import Post
+
+# from blogging.models import Post
+
 
 class Poll(models.Model):
     title = models.CharField(max_length=128)
     text = models.TextField(blank=True)
     score = models.IntegerField(default=0)
-    posts = models.ManyToManyField("blogging.Post", blank=True, related_name='polls')
+    posts = models.ManyToManyField("blogging.Post", blank=True, related_name="polls")
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name_plural = 'polls'
+        verbose_name_plural = "polls"
 
 
 # class Question(models.Model):

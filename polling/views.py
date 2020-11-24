@@ -2,17 +2,22 @@
 
 from django.shortcuts import render
 from django.http import Http404
-from polling.models import Poll  #, Question
+from polling.models import Poll  # , Question
+
 ##Stuff I added
-#from django.http import HttpResponse, HttpResponseRedirect
-#from django.shortcuts import get_object_or_404
-#from django.urls import reverse
+# from django.http import HttpResponse, HttpResponseRedirect
+# from django.shortcuts import get_object_or_404
+# from django.urls import reverse
 
 
 def list_view(request):
-    context = {'polls': Poll.objects.all(), 'latest_question_list': Question.objects.order_by('-pub_date')[:5]}
+    context = {
+        "polls": Poll.objects.all(),
+        "latest_question_list": Question.objects.order_by("-pub_date")[:5],
+    }
 
-    return render(request, 'polling/list.html', context)
+    return render(request, "polling/list.html", context)
+
 
 def detail_view(request, poll_id):
     try:
@@ -27,8 +32,8 @@ def detail_view(request, poll_id):
             poll.score -= 1
         poll.save()
 
-    context = {'poll': poll}
-    return render(request, 'polling/detail.html', context)
+    context = {"poll": poll}
+    return render(request, "polling/detail.html", context)
 
 
 # ##++++++++++++++++++++++++++++++++++++++++++++++++++++++++##
@@ -88,5 +93,3 @@ def detail_view(request, poll_id):
 #
 #         return HttpResponseRedirect(reverse('polling:results', args=(question.id,)))
 #
-
-

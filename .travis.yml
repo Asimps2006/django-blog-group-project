@@ -6,6 +6,7 @@ install:
   - python manage.py migrate
 script:
   - python manage.py test
+  - black --check blogging mysite polling
 ~
 ~
 ~

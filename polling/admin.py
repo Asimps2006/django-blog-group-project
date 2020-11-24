@@ -1,10 +1,11 @@
 from django.contrib import admin
 from polling.models import Poll
-#from polling.models import Question
+
+# from polling.models import Question
 
 
 admin.site.register(Poll)
-#admin.site.register(Question)
+# admin.site.register(Question)
 
 # @admin.register(Poll)
 # class PollAdmin
