@@ -8,21 +8,34 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('blogging', '0003_auto_20201108_1444'),
+        ("blogging", "0003_auto_20201108_1444"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Poll',
+            name="Poll",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=128)),
-                ('text', models.TextField(blank=True)),
-                ('score', models.IntegerField(default=0)),
-                ('posts', models.ManyToManyField(blank=True, related_name='polls', to='blogging.Post')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=128)),
+                ("text", models.TextField(blank=True)),
+                ("score", models.IntegerField(default=0)),
+                (
+                    "posts",
+                    models.ManyToManyField(
+                        blank=True, related_name="polls", to="blogging.Post"
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'polls',
+                "verbose_name_plural": "polls",
             },
         ),
     ]
