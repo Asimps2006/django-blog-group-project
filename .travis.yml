@@ -1,12 +1,12 @@
 language: python
 python:
-  - "3.8"
+    - "3.8.2"
 install:
-  - pip install -r requirements.txt
-  - python manage.py migrate
+    - pip install -r requirements.txt
+    - python manage.py migrate
 script:
-  - python manage.py test
-  - black --check blogging mysite polling
+    - python manage.py test
+    - black --check blogging mysite polling
 ~
 ~
 ~
