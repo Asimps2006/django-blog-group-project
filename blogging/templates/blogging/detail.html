@@ -16,7 +16,9 @@
 <br>
 <ul class="polls">
   {% for poll in object.polls.all %}
-        <li><a href="{% url 'poll_detail' poll.pk %}">{{ poll }}</a></li>
+        <li><a href="{% url 'poll_detail' poll.pk %}">{{ poll }}</a><br>
+            <h6>Vote Count: {{ poll.score }}</h6>
+        </li>
      {% endfor %}
 </ul>
 <br>
