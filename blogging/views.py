@@ -21,7 +21,7 @@ def add_model(request):
     else:
         print(request.user)
         if request.user.is_anonymous:
-            return redirect('/')
+            return redirect('../login/')
         form = PostForm()
         return render(request, "blogging/add.html", {'form': form})
 
