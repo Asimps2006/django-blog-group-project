@@ -16,14 +16,14 @@ def add_model(request):
             model_instance.author = request.user
             model_instance.published_date = timezone.now()
             model_instance.save()
-            return redirect('/')
+            return redirect("/")
 
     else:
         print(request.user)
         if request.user.is_anonymous:
-            return redirect('../accounts/login/')
+            return redirect("../accounts/login/")
         form = PostForm()
-        return render(request, "blogging/add.html", {'form': form})
+        return render(request, "blogging/add.html", {"form": form})
 
 
 def stub_view(request, *args, **kwargs):
